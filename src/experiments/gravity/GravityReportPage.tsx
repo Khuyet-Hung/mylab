@@ -1,22 +1,24 @@
 import { Link, useLocation } from "react-router";
 import { Eyebrow } from "../../components/ui/Eyebrow";
 import { HeightGraph } from "./HeightGraph";
-import { fallTimeS, sampleGravity, type GravitySnapshot } from "./model";
+import { fallTimeS, type GravitySnapshot } from "./model";
 
 type Inputs = { heightM: number; leftMassKg: number; rightMassKg: number };
-type ReportState = { inputs: Inputs; display: { left: GravitySnapshot; right: GravitySnapshot }; hasRun?: boolean };
-
-const defaults: ReportState = {
-  inputs: { heightM: 12, leftMassKg: 1, rightMassKg: 5 },
-  display: {
-    left: sampleGravity({ heightM: 12, massKg: 1, gravityMps2: 9.8 }, 0),
-    right: sampleGravity({ heightM: 12, massKg: 5, gravityMps2: 9.8 }, 0),
-  },
-};
+type ReportState = { inputs: Inputs; display: { left: GravitySnapshot; right: GravitySnapshot }; completed: true };
 
 export function GravityReportPage() {
   const location = useLocation();
-  const report = (location.state as ReportState | null) ?? defaults;
+  const report = location.state as ReportState | null;
+  if (!report?.completed || !report.display?.left?.landed || !report.display?.right?.landed) {
+    return (
+      <section className="page-section gravity-report">
+        <Link className="back-link" to="/physics/gravity/free-fall">← Về thí nghiệm</Link>
+        <Eyebrow>BÁO CÁO / CHƯA CÓ KẾT QUẢ</Eyebrow>
+        <h1>Hãy hoàn thành lần thả trước.</h1>
+        <p className="intro">Báo cáo sẽ xuất hiện sau khi cả hai vật chạm đất.</p>
+      </section>
+    );
+  }
   const { inputs, display } = report;
   const graphInput = {
     heightM: inputs.heightM,

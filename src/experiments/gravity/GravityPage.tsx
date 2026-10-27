@@ -23,13 +23,13 @@ export function GravityPage() {
   const returnState = location.state as {
     inputs?: Inputs;
     display?: ReturnType<typeof samples>;
-    hasRun?: boolean;
+    completed?: boolean;
   } | null;
   const [inputs, setInputs] = useState(() => returnState?.inputs ?? defaults);
   const inputsRef = useRef(inputs);
   const [display, setDisplay] = useState(() => returnState?.display ?? samples(inputs, 0));
   const [running, setRunning] = useState(false);
-  const [hasRun, setHasRun] = useState(returnState?.hasRun ?? false);
+  const [completed, setCompleted] = useState(returnState?.completed ?? false);
   const [sceneError, setSceneError] = useState(false);
   const hostRef = useRef<HTMLDivElement>(null);
   const sceneRef = useRef<GravityScene | null>(null);
@@ -50,6 +50,7 @@ export function GravityPage() {
     if (next.left.landed) {
       clockRef.current?.pause();
       setRunning(false);
+      setCompleted(true);
     }
   }
 
@@ -58,6 +59,7 @@ export function GravityPage() {
     inputsRef.current = next;
     setInputs(next);
     setRunning(false);
+    setCompleted(false);
     sceneRef.current?.setHeight(next.heightM);
     clockRef.current?.reset();
   }
@@ -96,8 +98,10 @@ export function GravityPage() {
   }, []);
 
   function startExperiment() {
-    if (display.left.landed) clockRef.current?.reset();
-    setHasRun(true);
+    if (display.left.landed) {
+      setCompleted(false);
+      clockRef.current?.reset();
+    }
     setRunning(true);
     clockRef.current?.play();
   }
@@ -116,7 +120,7 @@ export function GravityPage() {
         </>
       }
       isRunning={running}
-      hasRun={hasRun}
+      isComplete={completed}
       exitTo="/physics/gravity"
       onStart={startExperiment}
       onPause={() => {
@@ -124,6 +128,7 @@ export function GravityPage() {
         setRunning(false);
       }}
       onReset={() => {
+        setCompleted(false);
         clockRef.current?.reset();
         setRunning(false);
       }}
@@ -131,9 +136,9 @@ export function GravityPage() {
         <Link
           className="experiment-report-link"
           to="/physics/gravity/free-fall/report"
-          state={{ inputs, display, hasRun: true }}
-          aria-label="Báo cáo nghiên cứu"
-          title="Báo cáo nghiên cứu"
+          state={{ inputs, display, completed: true }}
+          aria-label="Xem báo cáo rơi tự do"
+          title="Xem báo cáo"
         >
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path

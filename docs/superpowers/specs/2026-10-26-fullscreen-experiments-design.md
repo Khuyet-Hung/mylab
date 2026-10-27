@@ -2,6 +2,8 @@
 
 Ngày: 2026-10-26
 
+> Cập nhật ngày 2026-10-27: Quy tắc mở báo cáo sau **khi hoàn tất thí nghiệm** trong `AGENTS.md` thay thế các đoạn dưới đây nói mở báo cáo sau lần chạy đầu tiên. Trang báo cáo mở trực tiếp khi chưa có lần thử hoàn tất hiển thị trạng thái chưa có kết quả.
+
 ## Ý định
 
 Biến trang thí nghiệm thành không gian tập trung vào canvas. Người học có thể chạy, tạm dừng, đặt lại và mở thiết lập ngay trên canvas; sau khi chạy lần đầu, họ có thể mở trang báo cáo riêng ở dạng bản nháp.

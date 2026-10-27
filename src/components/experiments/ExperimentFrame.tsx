@@ -6,7 +6,7 @@ type ExperimentFrameProps = {
   canvas: ReactNode;
   settings: ReactNode;
   isRunning: boolean;
-  hasRun: boolean;
+  isComplete: boolean;
   onStart: () => void;
   onPause: () => void;
   onReset: () => void;
@@ -50,7 +50,7 @@ export function ExperimentFrame({
   canvas,
   settings,
   isRunning,
-  hasRun,
+  isComplete,
   onStart,
   onPause,
   onReset,
@@ -95,7 +95,7 @@ export function ExperimentFrame({
           >
             <ResetIcon />
           </button>
-          {hasRun && <div className="experiment-frame__report">{reportLink}</div>}
+          {isComplete && <div className="experiment-frame__report">{reportLink}</div>}
         </div>
         <details className="experiment-frame__settings">
           <summary aria-label="Thiết lập thí nghiệm" title="Thiết lập">

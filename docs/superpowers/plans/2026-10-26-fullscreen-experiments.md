@@ -4,6 +4,8 @@
 
 **Goal:** Make experiments run in a full-screen canvas with floating icon actions, expandable settings, and a separate draft report unlocked after the first run.
 
+> Update 2026-10-27: `AGENTS.md` supersedes this plan's first-run report rule. The report action now appears only after an experiment's completion condition; reset or changing inputs hides it, and a direct report visit without a completed trial shows no results.
+
 **Architecture:** Add a reusable `ExperimentFrame` that owns the full-screen layout and common play/pause/reset/settings/report controls. Refactor `GravityPage` to supply its canvas and settings, track whether it has ever run, and pass a snapshot to a small report route. Keep the site's regular shell for the report and other pages.
 
 **Tech Stack:** React 19, TypeScript, React Router 8, CSS.

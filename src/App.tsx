@@ -5,6 +5,9 @@ import { Eyebrow } from "./components/ui/Eyebrow";
 import { CatalogPage } from "./catalog/CatalogPage";
 import { GravityPage } from "./experiments/gravity/GravityPage";
 import { GravityReportPage } from "./experiments/gravity/GravityReportPage";
+import { PendulumPage } from "./experiments/pendulum/PendulumPage";
+import { PendulumReportPage } from "./experiments/pendulum/PendulumReportPage";
+import { experiments } from "./catalog/experiments";
 
 function HomePage() {
   return (
@@ -42,7 +45,7 @@ function HomePage() {
           <Link className="field-card physics-card" to="/physics">
             <div className="card-top">
               <Eyebrow as="span">01 / VẬT LÝ</Eyebrow>
-              <Badge>1 thí nghiệm</Badge>
+              <Badge>{experiments.filter((experiment) => experiment.field === "physics" && experiment.status === "available").length} thí nghiệm</Badge>
             </div>
             <span className="field-symbol" aria-hidden="true">
               ↘
@@ -112,7 +115,13 @@ export default function App() {
             path="/physics/gravity"
             element={<CatalogPage field="physics" topic="Trọng lực" />}
           />
+          <Route
+            path="/physics/pendulum"
+            element={<CatalogPage field="physics" topic="Dao động" />}
+          />
           <Route path="/physics/gravity/free-fall" element={<GravityPage />} />
+          <Route path="/physics/pendulum/simple" element={<PendulumPage />} />
+          <Route path="/physics/pendulum/simple/report" element={<PendulumReportPage />} />
           <Route path="/physics/gravity/free-fall/report" element={<GravityReportPage />} />
           <Route
             path="/chemistry"

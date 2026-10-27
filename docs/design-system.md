@@ -9,7 +9,10 @@ A tactile editorial lab: warm paper, near-black ink, heavy numbers, outlined ins
 Be Vietnam Pro heavy sans headings and 34–42px measurement figures pair with compact monospace labels. Labels remain explicit; A/B letters, shared-curve explanation, axes and time milestones convey information independently of color. Interactive focus uses a 3px dark-blue outline with 5px offset.
 
 ## Composition
-Home combines an editorial headline with a code-native orbital diagram and two tactile field cards. Navigation and breadcrumbs use pills. Chemistry is explicitly a preview. The experiment uses a wide scene beside a narrower control instrument at desktop widths; below 900px the workbench precedes controls. Measurement tiles, the table, thick shared blue graph, and yellow explanation follow. No horizontal scrolling is required at 390px.
+Home combines an editorial headline with a code-native orbital diagram and two tactile field cards. Navigation and breadcrumbs use pills. Chemistry is explicitly a preview. The experiment uses a full-screen scene with a floating control toolbar and expandable settings; on narrow screens the toolbar moves below the scene. The separate report holds measurement tiles, tables, graphs, and the yellow explanation. No horizontal scrolling is required at 390px.
+
+## Shared experiment flow
+Every experiment opens its simulation in the full-screen `ExperimentFrame`. The simulation view contains the scene, input settings, and play/pause/reset/exit controls. Each experiment declares a scientific completion condition. The report action appears only after that condition is met, then opens a separate page with measured results, tables, graphs, and explanation. Resetting or changing inputs starts a new trial and hides the report action until that trial is complete. Opening a report route without a completed trial shows a no-results state and a return link. This rule applies to new experiments as well as the gravity and pendulum experiments.
 
 ## Motion contract
 SiteShell owns a scoped GSAP introduction: 12px movement, 420ms power2.out, 60ms stagger. The experiment animates only introductory text, so controls and scientific results are available immediately. Landing highlights the shared impact-time tile with a single 500ms color transition. Neither animation reads or writes simulation position, time, or model state.

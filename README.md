@@ -1,5 +1,7 @@
 # Phòng thí nghiệm khoa học 2D
 
+Quy tắc chung cho mọi thí nghiệm nằm trong [AGENTS.md](AGENTS.md): mô phỏng mở toàn màn hình, hoàn tất phép thử mới hiện nút báo cáo, và kết quả chỉ nằm trên trang báo cáo.
+
 React + TypeScript + Vite catalogue foundation. The free-fall workbench is a placeholder until the experiment implementation task.
 
 ## Local development

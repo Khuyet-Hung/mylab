@@ -15,6 +15,11 @@ export const experiments: ExperimentCard[] = [
     href: '/physics/gravity/free-fall', status: 'available',
   },
   {
+    id: 'simple-pendulum', field: 'physics', topic: 'Dao động',
+    title: 'Con lắc đơn', question: 'Dây dài hơn thì con lắc dao động chậm hơn bao nhiêu?',
+    href: '/physics/pendulum/simple', status: 'available',
+  },
+  {
     id: 'chemistry-preview', field: 'chemistry', topic: 'Khám phá vật chất',
     title: 'Hóa học đang đến', question: 'Điều gì xảy ra khi vật chất thay đổi?',
     href: '/chemistry', status: 'preview',

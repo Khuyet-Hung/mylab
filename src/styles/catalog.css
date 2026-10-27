@@ -52,6 +52,49 @@
   left: 58%;
 }
 
+.pendulum-illustration {
+  position: relative;
+  height: 110px;
+  margin-top: 20px;
+  overflow: hidden;
+  border-top: 3px solid var(--ink);
+  background: repeating-linear-gradient(#0000, #0000 24px, #1e1e1b22 25px);
+}
+
+.pendulum-illustration span {
+  position: absolute;
+  top: 0;
+  left: 38%;
+  width: 3px;
+  height: 67px;
+  background: var(--ink);
+  transform: rotate(22deg);
+  transform-origin: top center;
+}
+
+.pendulum-illustration span + span {
+  left: 62%;
+  height: 81px;
+  transform: rotate(-18deg);
+}
+
+.pendulum-illustration span::after {
+  content: "";
+  position: absolute;
+  bottom: -17px;
+  left: -15px;
+  width: 32px;
+  height: 32px;
+  border: var(--outline);
+  border-radius: 50%;
+  background: var(--coral);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.pendulum-illustration span + span::after {
+  background: var(--blue);
+}
+
 .preview-panel {
   max-width: 800px;
   margin-top: 36px;

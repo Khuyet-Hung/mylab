@@ -56,54 +56,61 @@ export function CatalogPage({
       experiment.status === "available" &&
       (!topic || experiment.topic === topic),
   );
+  const isGravity = topic === "Trọng lực";
   return (
     <section className="page-section">
       <Link className="back-link" to={topic ? "/physics" : "/"}>
         ← {topic ? "Vật lý" : "Tất cả lĩnh vực"}
       </Link>
-      <Eyebrow>01 / VẬT LÝ{topic ? " / TRỌNG LỰC" : ""}</Eyebrow>
+      <Eyebrow>01 / VẬT LÝ{topic ? ` / ${topic.toUpperCase()}` : ""}</Eyebrow>
       <h1>
         {topic
-          ? "Điều gì kéo mọi thứ xuống?"
+          ? isGravity ? "Điều gì kéo mọi thứ xuống?" : "Điều gì quyết định nhịp dao động?"
           : "Hiểu những quy luật\nqua từng lần thử."}
       </h1>
       <p className="intro">
         {topic
-          ? "Cùng quan sát chuyển động quen thuộc và tìm lời giải cho một câu hỏi tưởng chừng đơn giản."
+          ? isGravity
+            ? "Cùng quan sát chuyển động quen thuộc và tìm lời giải cho một câu hỏi tưởng chừng đơn giản."
+            : "Thay đổi độ dài dây và cùng tìm ra vì sao nhịp con lắc thay đổi."
           : "Bắt đầu từ một hiện tượng quen thuộc. Đặt câu hỏi và tự mình khám phá."}
       </p>
       <div className="catalog-grid">
         {topic ? (
-          available.map((experiment) => (
+          available.map((experiment, index) => (
             <Link
               className="catalog-card"
               key={experiment.id}
               to={experiment.href}
             >
-              <Eyebrow as="span">THÍ NGHIỆM / 01</Eyebrow>
-              <div className="fall-illustration" aria-hidden="true">
-                <span />
-                <span />
-              </div>
+              <Eyebrow as="span">THÍ NGHIỆM / {String(index + 1).padStart(2, "0")}</Eyebrow>
+              {experiment.id === "simple-pendulum" ? (
+                <div className="pendulum-illustration" aria-hidden="true"><span /><span /></div>
+              ) : (
+                <div className="fall-illustration" aria-hidden="true"><span /><span /></div>
+              )}
               <h2>{experiment.title}</h2>
               <p>{experiment.question}</p>
               <span className="text-link">Mở thí nghiệm ↗</span>
             </Link>
           ))
         ) : (
-          <Link className="catalog-card" to="/physics/gravity">
-            <Eyebrow as="span">CHỦ ĐỀ / 01</Eyebrow>
-            <div className="fall-illustration" aria-hidden="true">
-              <span />
-              <span />
-            </div>
-            <h2>Trọng lực</h2>
-            <p>
-              Vì sao mọi vật rơi xuống? Khám phá chuyển động dưới tác dụng của
-              trọng lực.
-            </p>
-            <span className="text-link">{available.length} thí nghiệm ↗</span>
-          </Link>
+          <>
+            <Link className="catalog-card" to="/physics/gravity">
+              <Eyebrow as="span">CHỦ ĐỀ / 01</Eyebrow>
+              <div className="fall-illustration" aria-hidden="true"><span /><span /></div>
+              <h2>Trọng lực</h2>
+              <p>Vì sao mọi vật rơi xuống? Khám phá chuyển động dưới tác dụng của trọng lực.</p>
+              <span className="text-link">{experiments.filter((experiment) => experiment.topic === "Trọng lực" && experiment.status === "available").length} thí nghiệm ↗</span>
+            </Link>
+            <Link className="catalog-card" to="/physics/pendulum">
+              <Eyebrow as="span">CHỦ ĐỀ / 02</Eyebrow>
+              <div className="pendulum-illustration" aria-hidden="true"><span /><span /></div>
+              <h2>Dao động</h2>
+              <p>Điều gì làm thay đổi nhịp con lắc? Quan sát và so sánh chu kỳ giữa hai độ dài dây.</p>
+              <span className="text-link">{experiments.filter((experiment) => experiment.topic === "Dao động" && experiment.status === "available").length} thí nghiệm ↗</span>
+            </Link>
+          </>
         )}
       </div>
     </section>

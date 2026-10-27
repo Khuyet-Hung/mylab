@@ -5,7 +5,7 @@ import { Link, NavLink, useLocation } from "react-router";
 
 export function SiteShell({ children }: { children: ReactNode }) {
   const { pathname } = useLocation();
-  const isExperimentPage = pathname === "/physics/gravity/free-fall";
+  const isExperimentPage = pathname === "/physics/gravity/free-fall" || pathname === "/physics/pendulum/simple";
   const main = useRef<HTMLElement>(null);
   const previousPath = useRef(pathname);
 
