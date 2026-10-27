@@ -20,6 +20,11 @@ export const experiments: ExperimentCard[] = [
     href: '/physics/pendulum/simple', status: 'available',
   },
   {
+    id: 'mirror-maze', field: 'physics', topic: 'Quang học',
+    title: 'Mê cung gương', question: 'Xoay một gương sẽ đổi đường đi của tia sáng ra sao?',
+    href: '/physics/optics/mirror-maze', status: 'available',
+  },
+  {
     id: 'chemistry-preview', field: 'chemistry', topic: 'Khám phá vật chất',
     title: 'Hóa học đang đến', question: 'Điều gì xảy ra khi vật chất thay đổi?',
     href: '/chemistry', status: 'preview',

@@ -56,7 +56,20 @@ export function CatalogPage({
       experiment.status === "available" &&
       (!topic || experiment.topic === topic),
   );
-  const isGravity = topic === "Trọng lực";
+  const topicCopy: Record<string, { title: string; intro: string }> = {
+    "Trọng lực": {
+      title: "Điều gì kéo mọi thứ xuống?",
+      intro: "Cùng quan sát chuyển động quen thuộc và tìm lời giải cho một câu hỏi tưởng chừng đơn giản.",
+    },
+    "Dao động": {
+      title: "Điều gì quyết định nhịp dao động?",
+      intro: "Thay đổi độ dài dây và cùng tìm ra vì sao nhịp con lắc thay đổi.",
+    },
+    "Quang học": {
+      title: "Ánh sáng sẽ đi về đâu?",
+      intro: "Tự đặt và xoay gương để khám phá cách một tia sáng đổi hướng sau mỗi lần phản xạ.",
+    },
+  };
   return (
     <section className="page-section">
       <Link className="back-link" to={topic ? "/physics" : "/"}>
@@ -64,16 +77,10 @@ export function CatalogPage({
       </Link>
       <Eyebrow>01 / VẬT LÝ{topic ? ` / ${topic.toUpperCase()}` : ""}</Eyebrow>
       <h1>
-        {topic
-          ? isGravity ? "Điều gì kéo mọi thứ xuống?" : "Điều gì quyết định nhịp dao động?"
-          : "Hiểu những quy luật\nqua từng lần thử."}
+        {topic ? topicCopy[topic]?.title ?? topic : "Hiểu những quy luật\nqua từng lần thử."}
       </h1>
       <p className="intro">
-        {topic
-          ? isGravity
-            ? "Cùng quan sát chuyển động quen thuộc và tìm lời giải cho một câu hỏi tưởng chừng đơn giản."
-            : "Thay đổi độ dài dây và cùng tìm ra vì sao nhịp con lắc thay đổi."
-          : "Bắt đầu từ một hiện tượng quen thuộc. Đặt câu hỏi và tự mình khám phá."}
+        {topic ? topicCopy[topic]?.intro ?? "Tự mình khám phá hiện tượng này." : "Bắt đầu từ một hiện tượng quen thuộc. Đặt câu hỏi và tự mình khám phá."}
       </p>
       <div className="catalog-grid">
         {topic ? (
@@ -86,6 +93,8 @@ export function CatalogPage({
               <Eyebrow as="span">THÍ NGHIỆM / {String(index + 1).padStart(2, "0")}</Eyebrow>
               {experiment.id === "simple-pendulum" ? (
                 <div className="pendulum-illustration" aria-hidden="true"><span /><span /></div>
+              ) : experiment.id === "mirror-maze" ? (
+                <div className="optics-illustration" aria-hidden="true"><span /><span /></div>
               ) : (
                 <div className="fall-illustration" aria-hidden="true"><span /><span /></div>
               )}
@@ -109,6 +118,13 @@ export function CatalogPage({
               <h2>Dao động</h2>
               <p>Điều gì làm thay đổi nhịp con lắc? Quan sát và so sánh chu kỳ giữa hai độ dài dây.</p>
               <span className="text-link">{experiments.filter((experiment) => experiment.topic === "Dao động" && experiment.status === "available").length} thí nghiệm ↗</span>
+            </Link>
+            <Link className="catalog-card" to="/physics/optics">
+              <Eyebrow as="span">CHỦ ĐỀ / 03</Eyebrow>
+              <div className="optics-illustration" aria-hidden="true"><span /><span /></div>
+              <h2>Quang học</h2>
+              <p>Tia sáng đổi hướng ra sao khi gặp gương? Tự sắp đặt đường đi và quan sát kết quả.</p>
+              <span className="text-link">{experiments.filter((experiment) => experiment.topic === "Quang học" && experiment.status === "available").length} thí nghiệm ↗</span>
             </Link>
           </>
         )}

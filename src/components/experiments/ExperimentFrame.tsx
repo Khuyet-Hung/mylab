@@ -2,11 +2,14 @@ import type { ReactNode } from "react";
 import { Link } from "react-router";
 
 type ExperimentFrameProps = {
+  className?: string;
   ariaLabel: string;
   canvas: ReactNode;
   settings: ReactNode;
   isRunning: boolean;
   isComplete: boolean;
+  startLabel?: string;
+  pauseLabel?: string;
   onStart: () => void;
   onPause: () => void;
   onReset: () => void;
@@ -46,11 +49,14 @@ function ResetIcon() {
 }
 
 export function ExperimentFrame({
+  className,
   ariaLabel,
   canvas,
   settings,
   isRunning,
   isComplete,
+  startLabel = "Bắt đầu thí nghiệm",
+  pauseLabel = "Tạm dừng thí nghiệm",
   onStart,
   onPause,
   onReset,
@@ -58,7 +64,7 @@ export function ExperimentFrame({
   exitTo,
 }: ExperimentFrameProps) {
   return (
-    <section className="experiment-frame" aria-label={ariaLabel}>
+    <section className={`experiment-frame${className ? ` ${className}` : ""}`} aria-label={ariaLabel}>
       <div className="experiment-frame__canvas">{canvas}</div>
       <aside className="experiment-frame__controls" aria-label="Điều khiển thí nghiệm">
         <div
@@ -69,8 +75,8 @@ export function ExperimentFrame({
           <button
             type="button"
             className="experiment-icon-button"
-            aria-label="Bắt đầu thí nghiệm"
-            title="Bắt đầu"
+            aria-label={startLabel}
+            title={startLabel}
             disabled={isRunning}
             onClick={onStart}
           >
@@ -79,8 +85,8 @@ export function ExperimentFrame({
           <button
             type="button"
             className="experiment-icon-button"
-            aria-label="Tạm dừng thí nghiệm"
-            title="Tạm dừng"
+            aria-label={pauseLabel}
+            title={pauseLabel}
             disabled={!isRunning}
             onClick={onPause}
           >

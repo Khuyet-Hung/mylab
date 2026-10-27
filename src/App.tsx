@@ -7,6 +7,8 @@ import { GravityPage } from "./experiments/gravity/GravityPage";
 import { GravityReportPage } from "./experiments/gravity/GravityReportPage";
 import { PendulumPage } from "./experiments/pendulum/PendulumPage";
 import { PendulumReportPage } from "./experiments/pendulum/PendulumReportPage";
+import { MirrorMazePage } from "./experiments/optics/MirrorMazePage";
+import { MirrorMazeReportPage } from "./experiments/optics/MirrorMazeReportPage";
 import { experiments } from "./catalog/experiments";
 
 function HomePage() {
@@ -119,9 +121,15 @@ export default function App() {
             path="/physics/pendulum"
             element={<CatalogPage field="physics" topic="Dao động" />}
           />
+          <Route
+            path="/physics/optics"
+            element={<CatalogPage field="physics" topic="Quang học" />}
+          />
           <Route path="/physics/gravity/free-fall" element={<GravityPage />} />
           <Route path="/physics/pendulum/simple" element={<PendulumPage />} />
           <Route path="/physics/pendulum/simple/report" element={<PendulumReportPage />} />
+          <Route path="/physics/optics/mirror-maze" element={<MirrorMazePage />} />
+          <Route path="/physics/optics/mirror-maze/report" element={<MirrorMazeReportPage />} />
           <Route path="/physics/gravity/free-fall/report" element={<GravityReportPage />} />
           <Route
             path="/chemistry"

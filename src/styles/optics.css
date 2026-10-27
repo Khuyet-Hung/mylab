@@ -1,0 +1,193 @@
+.optics-canvas {
+  width: min(calc(100vw - 72px), 173.0769dvh);
+  min-width: 0;
+}
+
+.optics-canvas canvas {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+}
+
+.optics-canvas-error {
+  position: absolute;
+  margin: 0;
+  padding: 12px 16px;
+  border: var(--outline);
+  border-radius: 12px;
+  background: var(--panel);
+}
+
+.optics-settings__mirror-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.optics-settings__mirror-actions button {
+  min-height: 44px;
+}
+
+.optics-settings select {
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: var(--outline);
+  border-radius: 10px;
+  background: var(--paper);
+  color: var(--ink);
+  font: 700 13px var(--sans);
+}
+
+.optics-settings__nudge {
+  border: 2px dashed var(--blue-ink);
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 12px;
+}
+
+.optics-settings :is(select, .optics-settings__nudge):focus-visible {
+  outline: var(--focus);
+  outline-offset: 4px;
+}
+
+.optics-report > .eyebrow {
+  margin-bottom: 12px;
+}
+
+.optics-report__metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.optics-report__metrics > div {
+  padding: 18px;
+  border: var(--outline);
+  border-radius: 14px;
+  background: var(--paper);
+}
+
+.optics-report__metrics > div:last-child {
+  background: var(--yellow);
+}
+
+.optics-report__metrics span {
+  display: block;
+  font: 700 11px var(--mono);
+}
+
+.optics-report__metrics strong {
+  display: block;
+  margin-top: 8px;
+  font-size: clamp(22px, 3vw, 36px);
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.optics-report__diagram {
+  margin-top: 28px;
+  padding: 26px;
+  border: var(--outline);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.optics-report__diagram svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
+
+.optics-report__diagram p {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.optics-report table {
+  table-layout: fixed;
+}
+
+.optics-report th,
+.optics-report td {
+  overflow-wrap: anywhere;
+}
+
+.optics-illustration {
+  position: relative;
+  height: 110px;
+  margin-top: 20px;
+  overflow: hidden;
+  border: var(--outline);
+  border-radius: 10px;
+  background: repeating-linear-gradient(90deg, transparent, transparent 27px, #1e1e1b18 28px);
+}
+
+.optics-illustration::before {
+  content: "";
+  position: absolute;
+  top: 54px;
+  left: 14%;
+  width: 38%;
+  height: 7px;
+  background: var(--yellow);
+  border: 2px solid var(--ink);
+  transform-origin: right center;
+  transform: rotate(0deg);
+}
+
+.optics-illustration::after {
+  content: "";
+  position: absolute;
+  top: 13px;
+  left: 52%;
+  width: 8px;
+  height: 93px;
+  background: var(--blue);
+  border: 2px solid var(--ink);
+  transform: rotate(44deg);
+}
+
+.optics-illustration span:first-child {
+  position: absolute;
+  top: 44px;
+  left: 9%;
+  width: 24px;
+  height: 24px;
+  border: var(--outline);
+  border-radius: 50%;
+  background: var(--coral);
+}
+
+.optics-illustration span:last-child {
+  position: absolute;
+  top: 21px;
+  left: 65%;
+  width: 24%;
+  height: 7px;
+  border: 2px solid var(--ink);
+  background: var(--yellow);
+  transform: rotate(-34deg);
+}
+
+@media (max-width: 700px) {
+  .optics-canvas {
+    width: min(100vw, calc((100dvh - 68px) * 1.730769));
+  }
+
+  .experiment-frame--optics .experiment-frame__settings-panel {
+    max-height: min(260px, max(130px, calc((100dvh - 66px - 57.7778vw) / 2 - 8px)));
+  }
+
+  .optics-report__metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .optics-report__diagram {
+    padding: 16px 10px;
+  }
+}

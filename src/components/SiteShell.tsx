@@ -5,7 +5,7 @@ import { Link, NavLink, useLocation } from "react-router";
 
 export function SiteShell({ children }: { children: ReactNode }) {
   const { pathname } = useLocation();
-  const isExperimentPage = pathname === "/physics/gravity/free-fall" || pathname === "/physics/pendulum/simple";
+  const isExperimentPage = pathname === "/physics/gravity/free-fall" || pathname === "/physics/pendulum/simple" || pathname === "/physics/optics/mirror-maze";
   const main = useRef<HTMLElement>(null);
   const previousPath = useRef(pathname);
 
@@ -18,6 +18,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
   }, [pathname]);
 
   useEffect(() => {
+    if (isExperimentPage) return;
     const context = gsap.context(() => {
       const media = gsap.matchMedia();
       const previewReduced =
