@@ -1,6 +1,7 @@
 import { Application, Container, Graphics, Rectangle, Text } from "pixi.js";
 import type { FederatedPointerEvent } from "pixi.js";
 import type { GravitySnapshot } from "./model";
+import { resizeExperimentScene } from "../shared/resizeScene";
 
 export interface GravityScene {
   update(left: GravitySnapshot, right: GravitySnapshot): void;
@@ -48,7 +49,6 @@ export async function createGravityScene(
   app.stage.addChild(world);
   const art = new Graphics();
   world.addChild(art);
-  const labels: Text[] = [];
   const label = (text: string, x: number, y: number, size = 13) => {
     const item = new Text({
       text,
@@ -61,7 +61,6 @@ export async function createGravityScene(
     });
     item.position.set(x, y);
     world.addChild(item);
-    labels.push(item);
     return item;
   };
   // Offset silhouettes, solid ink outlines, and sparse paper-grid construction.
@@ -133,7 +132,6 @@ export async function createGravityScene(
     });
     text.anchor.set(0.5);
     ball.addChild(text);
-    labels.push(text);
     ball.eventMode = "static";
     ball.cursor = "grab";
     ball.hitArea = new Rectangle(-34, -34, 68, 68);
@@ -195,15 +193,7 @@ export async function createGravityScene(
   world.on("pointercancel", end);
   const resize = () => {
     if (destroyed) return;
-    const width = Math.max(1, host.clientWidth || WIDTH);
-    const height = (width * HEIGHT) / WIDTH;
-    app.renderer.resize(width, height);
-    world.scale.set(width / WIDTH);
-    const textResolution = Math.min(
-      4,
-      Math.max(1, (width / WIDTH) * app.renderer.resolution),
-    );
-    for (const item of labels) item.resolution = textResolution;
+    resizeExperimentScene(app, world, host, { width: WIDTH, height: HEIGHT });
     render();
   };
   const observer = new ResizeObserver(resize);

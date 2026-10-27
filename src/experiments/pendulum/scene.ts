@@ -1,5 +1,6 @@
 import { Application, Container, Graphics, Text } from "pixi.js";
 import type { PendulumState } from "./model";
+import { resizeExperimentScene } from "../shared/resizeScene";
 
 export type PendulumScene = {
   update(
@@ -138,9 +139,8 @@ export async function createPendulumScene(host: HTMLElement): Promise<PendulumSc
     if (destroyed) return;
     const width = Math.max(1, host.clientWidth || DESKTOP.width);
     layout = width < 700 ? MOBILE : DESKTOP;
-    app.renderer.resize(width, (width * layout.height) / layout.width);
-    world.scale.set(width / layout.width);
     drawBackdrop();
+    resizeExperimentScene(app, world, host, layout);
     drawCurrent();
   };
   const observer = new ResizeObserver(resize);

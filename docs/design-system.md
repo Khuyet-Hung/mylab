@@ -19,5 +19,8 @@ SiteShell owns a scoped GSAP introduction: 12px movement, 420ms power2.out, 60ms
 
 Each effect owns gsap.context and gsap.matchMedia cleanup. Reduced motion replaces the introduction with a 150ms opacity fade without translation/stagger, and shortens result feedback to 150ms. CSS hover translation is enabled only for no-preference. Scientific motion remains explicitly controlled by Play/Pause/Reset. A development-only `?reduce=1` harness selects the reduced GSAP branch for browser QA; production follows the OS media query. The harness does not emulate the OS CSS preference.
 
+## Canvas text clarity
+PixiJS `Text` is rasterized before the logical scene is scaled. All experiment scenes use `resizeExperimentScene` from `src/experiments/shared/resizeScene.ts` inside their resize observer. It resizes the renderer, scales the scene, then adjusts every nested `Text` texture resolution for the actual display scale. It also keeps canvas labels near a 12 CSS pixel minimum on narrow screens where space permits. New scenes call this shared helper instead of maintaining their own text-resolution lists.
+
 ## Verification boundaries
 Browser QA includes desktop and 390×844 layouts, controls, focus, reduced GSAP branch, and landing equality. Real touch hardware and OS-level media emulation remain separate release checks. Canvas labels necessarily shrink on phones; adjacent HTML controls and measurements provide readable equivalents.
