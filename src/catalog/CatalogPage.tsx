@@ -65,6 +65,10 @@ export function CatalogPage({
       title: "Điều gì quyết định nhịp dao động?",
       intro: "Thay đổi độ dài dây và cùng tìm ra vì sao nhịp con lắc thay đổi.",
     },
+    "Dao động và hỗn loạn": {
+      title: "Một sai khác nhỏ dẫn đến đâu?",
+      intro: "Thả hai con lắc kép gần như giống nhau và theo dõi cách hai quỹ đạo dần tách ra.",
+    },
     "Quang học": {
       title: "Ánh sáng sẽ đi về đâu?",
       intro: "Tự đặt và xoay gương để khám phá cách một tia sáng đổi hướng sau mỗi lần phản xạ.",
@@ -93,6 +97,8 @@ export function CatalogPage({
               <Eyebrow as="span">THÍ NGHIỆM / {String(index + 1).padStart(2, "0")}</Eyebrow>
               {experiment.id === "simple-pendulum" ? (
                 <div className="pendulum-illustration" aria-hidden="true"><span /><span /></div>
+              ) : experiment.id === "double-pendulum-chaos" ? (
+                <div className="double-pendulum-illustration" aria-hidden="true"><span /><span /></div>
               ) : experiment.id === "mirror-maze" ? (
                 <div className="optics-illustration" aria-hidden="true"><span /><span /></div>
               ) : (
@@ -125,6 +131,13 @@ export function CatalogPage({
               <h2>Quang học</h2>
               <p>Tia sáng đổi hướng ra sao khi gặp gương? Tự sắp đặt đường đi và quan sát kết quả.</p>
               <span className="text-link">{experiments.filter((experiment) => experiment.topic === "Quang học" && experiment.status === "available").length} thí nghiệm ↗</span>
+            </Link>
+            <Link className="catalog-card" to="/physics/oscillations">
+              <Eyebrow as="span">CHỦ ĐỀ / 04</Eyebrow>
+              <div className="double-pendulum-illustration" aria-hidden="true"><span /><span /></div>
+              <h2>Dao động và hỗn loạn</h2>
+              <p>Hai chuyển động bắt đầu gần giống nhau sẽ đi về đâu sau một lúc?</p>
+              <span className="text-link">{experiments.filter((experiment) => experiment.topic === "Dao động và hỗn loạn" && experiment.status === "available").length} thí nghiệm ↗</span>
             </Link>
           </>
         )}

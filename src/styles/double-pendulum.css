@@ -1,0 +1,145 @@
+.experiment-frame--double-pendulum .experiment-frame__canvas {
+  container-type: size;
+}
+
+.double-pendulum-canvas {
+  width: min(calc(100vw - 72px), 176.47dvh);
+  width: min(100cqw, calc(100cqh * 900 / 510));
+  min-width: 0;
+}
+
+.double-pendulum-canvas canvas {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+}
+
+.double-pendulum-canvas-error {
+  position: absolute;
+  margin: 0;
+  padding: 12px 16px;
+  border: var(--outline);
+  border-radius: 12px;
+  background: var(--panel);
+}
+
+.double-pendulum-illustration {
+  position: relative;
+  height: 110px;
+  margin-top: 20px;
+  overflow: hidden;
+  border-top: 3px solid var(--ink);
+  background: repeating-linear-gradient(#0000, #0000 24px, #1e1e1b22 25px);
+}
+
+.double-pendulum-illustration span {
+  position: absolute;
+  top: 0;
+  left: 38%;
+  width: 3px;
+  height: 46px;
+  background: var(--ink);
+  transform: rotate(28deg);
+  transform-origin: top center;
+}
+
+.double-pendulum-illustration span + span {
+  left: 62%;
+  transform: rotate(31deg);
+}
+
+.double-pendulum-illustration span::before {
+  content: "";
+  position: absolute;
+  top: 45px;
+  left: 0;
+  width: 3px;
+  height: 41px;
+  background: var(--ink);
+  transform: rotate(-65deg);
+  transform-origin: top center;
+}
+
+.double-pendulum-illustration span + span::before {
+  transform: rotate(55deg);
+}
+
+.double-pendulum-illustration span::after {
+  content: "";
+  position: absolute;
+  top: 33px;
+  left: -10px;
+  width: 19px;
+  height: 19px;
+  border: var(--outline);
+  border-radius: 50%;
+  background: var(--coral);
+}
+
+.double-pendulum-illustration span + span::after {
+  background: var(--blue);
+}
+
+.double-pendulum-report > .eyebrow {
+  margin-bottom: 12px;
+}
+
+.double-pendulum-chart {
+  margin-top: 28px;
+  padding: 26px;
+  border: var(--outline);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.double-pendulum-chart svg {
+  display: block;
+  width: min(100%, 850px);
+  height: auto;
+  margin: auto;
+  font: 12px var(--mono);
+}
+
+.double-pendulum-chart .double-pendulum-chart__mobile {
+  display: none;
+}
+
+.double-pendulum-chart p {
+  font-size: 13px;
+}
+
+@media (max-width: 700px) {
+  .double-pendulum-canvas {
+    width: min(100vw, calc((100dvh - 68px - env(safe-area-inset-bottom)) * 0.578947));
+    width: min(100cqw, calc(100cqh * 440 / 760));
+  }
+
+  .double-pendulum-chart {
+    padding: 20px 12px;
+  }
+
+  .double-pendulum-chart .double-pendulum-chart__desktop {
+    display: none;
+  }
+
+  .double-pendulum-chart .double-pendulum-chart__mobile {
+    display: block;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 380px) {
+  .double-pendulum-report h1 {
+    font-size: 36px;
+    letter-spacing: -1.5px;
+  }
+
+  .double-pendulum-report .measurement-tiles {
+    grid-template-columns: 1fr;
+  }
+
+  .double-pendulum-report .measurement-tile strong {
+    white-space: nowrap;
+  }
+}

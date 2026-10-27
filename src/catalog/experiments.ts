@@ -20,6 +20,11 @@ export const experiments: ExperimentCard[] = [
     href: '/physics/pendulum/simple', status: 'available',
   },
   {
+    id: 'double-pendulum-chaos', field: 'physics', topic: 'Dao động và hỗn loạn',
+    title: 'Con lắc kép', question: 'Sai khác rất nhỏ có thể làm chuyển động đổi khác đến đâu?',
+    href: '/physics/oscillations/double-pendulum', status: 'available',
+  },
+  {
     id: 'mirror-maze', field: 'physics', topic: 'Quang học',
     title: 'Mê cung gương', question: 'Xoay một gương sẽ đổi đường đi của tia sáng ra sao?',
     href: '/physics/optics/mirror-maze', status: 'available',
