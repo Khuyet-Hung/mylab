@@ -1,0 +1,143 @@
+@media (prefers-reduced-motion: no-preference) {
+  .field-card, .catalog-card, .ui-button {
+    transition: transform var(--motion-short), box-shadow var(--motion-short);
+  }
+  .field-card:hover, .catalog-card:hover, .ui-button:hover:not(:disabled) {
+    box-shadow: 7px 7px 0 var(--ink);
+    transform: translate(-2px, -2px);
+  }
+  .ui-button:active:not(:disabled) {
+    transform: translateY(2px);
+  }
+}
+
+@media (max-width: 700px) {
+  :root {
+    --shadow: 3px 3px 0 var(--ink);
+    --radius: 16px;
+  }
+  .site-shell {
+    padding: 0 5%;
+  }
+  .site-shell--experiment {
+    padding: 0;
+  }
+  .site-header {
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px 0;
+  }
+  .brand {
+    font-size: 16px;
+  }
+  .site-header nav {
+    justify-content: space-between;
+    width: 100%;
+  }
+  .site-header nav a {
+    padding: 8px 12px;
+  }
+  .home-hero {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 36px 0;
+  }
+  h1 {
+    letter-spacing: -2px;
+    font-size: 43px;
+  }
+  .hero-art {
+    height: 230px;
+  }
+  .art-ball {
+    width: 90px;
+    height: 90px;
+  }
+  .field-grid, .catalog-grid {
+    grid-template-columns: 1fr;
+  }
+  .section-heading > span {
+    display: none;
+  }
+  .section-heading h2 {
+    font-size: 18px;
+  }
+  .field-card {
+    padding: 24px 24px 0;
+  }
+  .site-footer {
+    flex-direction: column;
+    gap: 8px;
+    line-height: 1.6;
+  }
+  .back-link {
+    margin-bottom: 26px;
+  }
+  .intro br {
+    display: none;
+  }
+  .experiment-measurements, .height-graph, .experiment-explanation {
+    padding: 20px 14px;
+  }
+  .measurement-tiles {
+    gap: 10px;
+  }
+  .measurement-tile {
+    padding: 12px;
+  }
+  .measurement-tile strong {
+    font-size: 34px;
+  }
+  .measurement-tile > span {
+    font-size: 10px;
+    line-height: 1.6;
+  }
+  th, td {
+    padding: 12px 5px;
+    font-size: 11px;
+  }
+  thead th {
+    font-size: 10px;
+  }
+  .experiment-frame {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) auto;
+  }
+  .experiment-frame__canvas {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .gravity-canvas {
+    width: min(100vw, calc((100dvh - 68px) * 1.730769));
+  }
+  .experiment-frame__controls {
+    grid-column: 1;
+    grid-row: 2;
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+    padding: 7px 8px max(7px, env(safe-area-inset-bottom));
+  }
+  .experiment-frame__toolbar {
+    flex-direction: row;
+  }
+  .experiment-frame__report {
+    border-top: 0;
+    border-left: 1px solid var(--ink);
+    padding-top: 0;
+    padding-left: 5px;
+  }
+  .experiment-frame__exit {
+    width: 46px;
+    height: 46px;
+    margin-top: 0;
+    margin-left: auto;
+  }
+  .experiment-frame__settings-panel {
+    top: auto;
+    bottom: calc(100% + 6px);
+    left: 8px;
+    width: min(330px, calc(100vw - 16px));
+    max-height: min(60dvh, 500px);
+  }
+}

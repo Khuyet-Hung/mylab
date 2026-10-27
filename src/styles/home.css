@@ -1,0 +1,156 @@
+.home-hero {
+  grid-template-columns: 1.3fr 1fr;
+  align-items: center;
+  gap: 42px;
+  padding: 60px 0 50px;
+  display: grid;
+}
+
+.hero-art {
+  border: var(--outline);
+  border-radius: var(--radius);
+  height: 285px;
+  box-shadow: var(--shadow);
+  background: var(--blue);
+  background-image: linear-gradient(#fff2 1px,#0000 1px),linear-gradient(90deg,#fff2 1px,#0000 1px);
+  background-size: 28px 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.orbit {
+  border: 3px solid var(--ink);
+  border-radius: 50%;
+  width: 80%;
+  height: 43%;
+  position: absolute;
+  top: 27%;
+  left: 10%;
+  transform: rotate(-25deg);
+}
+
+.orbit-two {
+  transform: rotate(34deg);
+}
+
+.art-ball {
+  background: var(--yellow);
+  border: 3px solid var(--ink);
+  width: 112px;
+  height: 112px;
+  box-shadow: 6px 6px 0 var(--ink);
+  border-radius: 50%;
+  position: absolute;
+  top: 24%;
+  left: 39%;
+}
+
+.art-label {
+  text-align: center;
+  background: var(--paper);
+  border: var(--outline);
+  letter-spacing: 0;
+  border-radius: 999px;
+  padding: 10px 5px;
+  font-size: 9px;
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
+}
+
+.art-cross {
+  font-size: 42px;
+  font-weight: 800;
+  position: absolute;
+  top: 0;
+  right: 18px;
+}
+
+.section-heading {
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 22px;
+  display: flex;
+}
+
+.section-heading h2 {
+  margin: 0;
+}
+
+.field-grid, .catalog-grid {
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  display: grid;
+}
+
+.field-card, .catalog-card, .preview-panel {
+  border: var(--outline);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background: var(--yellow);
+  padding: 26px 30px 0;
+  position: relative;
+}
+
+.chemistry-card, .preview-panel {
+  background: var(--coral);
+}
+
+.card-top {
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  display: flex;
+}
+
+.field-card h3 {
+  letter-spacing: -1.5px;
+  margin: 35px 0 14px;
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.field-card p {
+  margin: 0 0 28px;
+  font-size: 13px;
+}
+
+.field-symbol {
+  font-size: 95px;
+  font-weight: 900;
+  line-height: 1;
+  position: absolute;
+  top: 63px;
+  right: 35px;
+}
+
+.card-bottom {
+  border-top: var(--outline);
+  justify-content: space-between;
+  padding: 17px 0;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+}
+
+.card-bottom span {
+  font-size: 23px;
+  line-height: 1;
+}
+
+.chemistry-symbol {
+  font-size: 85px;
+}
+
+.home-note {
+  text-align: center;
+  font: 11px var(--mono);
+  margin: 38px 0;
+}
+
+.home-note span {
+  margin-right: 8px;
+}

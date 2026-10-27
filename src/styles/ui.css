@@ -1,0 +1,26 @@
+.eyebrow, .badge, .section-heading > span, .art-label {
+  font: 11px var(--mono);
+  letter-spacing: 1px;
+}
+
+.eyebrow {
+  margin: 0 0 24px;
+}
+
+.card-top .eyebrow {
+  margin: 0;
+}
+
+.badge {
+  border: var(--outline);
+  background: var(--panel);
+  white-space: nowrap;
+  letter-spacing: 0;
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 10px;
+}
+
+.ui-button {
+  box-shadow: var(--shadow);
+}

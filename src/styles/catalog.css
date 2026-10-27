@@ -1,0 +1,58 @@
+.catalog-grid {
+  margin-top: 36px;
+}
+
+.catalog-card, .preview-panel {
+  padding: 28px;
+}
+
+.catalog-card h2, .preview-panel h2 {
+  margin: 22px 0 12px;
+  font-size: 28px;
+}
+
+.catalog-card p, .preview-panel p {
+  font-size: 14px;
+}
+
+.text-link {
+  text-underline-offset: 5px;
+  margin-top: 12px;
+  padding: 10px 0;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: underline;
+  display: inline-block;
+}
+
+.fall-illustration {
+  border-bottom: 3px solid var(--ink);
+  background: repeating-linear-gradient(#0000,#0000 24px,#1e1e1b22 25px);
+  height: 110px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.fall-illustration span {
+  background: var(--coral);
+  border: var(--outline);
+  width: 30px;
+  height: 30px;
+  box-shadow: 3px 3px 0 var(--ink);
+  border-radius: 50%;
+  position: absolute;
+  bottom: 12px;
+  left: 34%;
+}
+
+.fall-illustration span + span {
+  background: var(--blue);
+  width: 48px;
+  height: 48px;
+  left: 58%;
+}
+
+.preview-panel {
+  max-width: 800px;
+  margin-top: 36px;
+}

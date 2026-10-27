@@ -1,0 +1,146 @@
+.site-shell {
+  max-width: 1480px;
+  margin: auto;
+  padding: 0 5%;
+}
+
+.site-shell--experiment {
+  max-width: none;
+  height: 100dvh;
+  padding: 0;
+  overflow: hidden;
+}
+
+.site-shell--experiment .site-header,
+.site-shell--experiment .site-footer,
+.site-shell--experiment .skip-link {
+  display: none;
+}
+
+.site-shell--experiment main {
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.site-header {
+  border-bottom: var(--outline);
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  min-height: 112px;
+  display: flex;
+}
+
+.brand {
+  letter-spacing: -.7px;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+  font-weight: 800;
+  display: flex;
+}
+
+.brand-symbol {
+  border: var(--outline);
+  background: var(--yellow);
+  border-radius: 50%;
+  place-items: center;
+  width: 49px;
+  height: 49px;
+  font-size: 39px;
+  line-height: 1;
+  display: grid;
+}
+
+.brand-caption {
+  font: 10px var(--mono);
+  letter-spacing: 2px;
+  margin-top: 5px;
+  display: block;
+}
+
+.site-header nav {
+  border: var(--outline);
+  background: var(--panel);
+  border-radius: 999px;
+  gap: 5px;
+  padding: 5px;
+  display: flex;
+}
+
+.site-header nav a {
+  border: 2px solid #0000;
+  border-radius: 999px;
+  padding: 8px 17px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.site-header nav a.active {
+  background: var(--yellow);
+  border-color: var(--ink);
+}
+
+.nav-dot, .status-dot {
+  background: var(--ink);
+  border-radius: 50%;
+  width: 7px;
+  height: 7px;
+  margin-left: 4px;
+  display: inline-block;
+}
+
+.status-dot {
+  margin: 0 8px 1px 0;
+}
+
+.skip-link {
+  background: var(--yellow);
+  border: var(--outline);
+  z-index: 10;
+  padding: 12px;
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  transform: translateY(-160%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+.site-footer {
+  border-top: var(--outline);
+  font: 10px var(--mono);
+  color: var(--muted);
+  justify-content: space-between;
+  gap: 20px;
+  padding: 23px 0;
+  display: flex;
+}
+
+.page-section {
+  min-height: calc(100vh - 180px);
+  padding: 32px 0 64px;
+}
+
+.back-link {
+  font: 11px var(--mono);
+  border: var(--outline);
+  background: var(--panel);
+  border-radius: 999px;
+  margin-bottom: 32px;
+  padding: 10px 15px;
+  display: inline-block;
+}
+
+.page-section .eyebrow .badge {
+  margin-left: 12px;
+}
+
+.intro {
+  color: var(--muted);
+  max-width: 650px;
+  margin: 0;
+  font-size: 14px;
+}

@@ -1,0 +1,18 @@
+﻿:root {
+  --paper: #f4f2ec;
+  --ink: #1e1e1b;
+  --muted: #55554e;
+  --yellow: #ffd83d;
+  --coral: #ff927a;
+  --blue: #4f78e8;
+  --blue-ink: #244fb9;
+  --panel: #fffdf6;
+  --outline: 2px solid var(--ink);
+  --shadow: 5px 5px 0 var(--ink);
+  --radius: 20px;
+  --mono: "Cascadia Code", Consolas, monospace;
+  --sans: "Be Vietnam Pro", Arial, sans-serif;
+  --space: 8px;
+  --focus: 3px solid var(--blue-ink);
+  --motion-short: 150ms;
+}
